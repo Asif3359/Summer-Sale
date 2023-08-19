@@ -6,6 +6,11 @@
     <title>Summer sale main</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body{
+    font-family: 'Work Sans', sans-serif;
+  }
+</style>
 </head>
 <body>
     <header class="bg-[#F9F6E2]">
@@ -31,7 +36,7 @@
                   <div>
                     <h1 class="mb-4 text-2xl font-semibold">Kitchenware</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                          <div class="card  bg-base-100 ">
+                          <div onclick="CardClick(this)" id="card-1" class="card  bg-base-100 ">
                             <figure class=" m-5 bg-[#F8F8F8] rounded-xl">
                               <img src="./images/prod1.png" alt="K. Accessories" class="rounded-xl p-2" />
                             </figure>
@@ -44,10 +49,10 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                               </div>
                               <h2 class="card-title">K. Accessories</h2>
-                              <p>39.00 TK</p>
+                              <p>00.00 TK</p>
                             </div>
                           </div>
-                          <div class="card  bg-base-100 ">
+                          <div onclick="CardClick(this)" class="card  bg-base-100 ">
                             <figure class=" m-5 bg-[#F8F8F8] rounded-xl">
                               <img src="./images/prod1.png" alt="K. Accessories" class="rounded-xl p-2" />
                             </figure>
@@ -59,11 +64,11 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                               </div>
-                              <h2 class="card-title">K. Accessories</h2>
-                              <p>39.00 TK</p>
+                              <h2 class="card-title">K. Access</h2>
+                              <p>60.00 TK</p>
                             </div>
                           </div>
-                          <div class="card  bg-base-100 ">
+                          <div onclick="CardClick(this)" class="card  bg-base-100 ">
                             <figure class=" m-5 bg-[#F8F8F8] rounded-xl">
                               <img src="./images/prod1.png" alt="K. Accessories" class="rounded-xl p-2" />
                             </figure>
@@ -75,8 +80,8 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                               </div>
-                              <h2 class="card-title">K. Accessories</h2>
-                              <p>39.00 TK</p>
+                              <h2 class="card-title">ssories</h2>
+                              <p>90.00 TK</p>
                             </div>
                           </div>
                     </div>
@@ -84,7 +89,7 @@
                   <div>
                     <h1 class="mb-4 text-2xl font-semibold mt-5">Kitchenware</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                          <div class="card  bg-base-100 ">
+                          <div onclick="CardClick(this)" class="card  bg-base-100 ">
                             <figure class=" m-5 bg-[#F8F8F8] rounded-xl">
                               <img src="./images/prod1.png" alt="K. Accessories" class="rounded-xl p-2" />
                             </figure>
@@ -96,11 +101,11 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                               </div>
-                              <h2 class="card-title">K. Accessories</h2>
-                              <p>39.00 TK</p>
+                              <h2 class="card-title">K. Accessor</h2>
+                              <p>100.00 TK</p>
                             </div>
                           </div>
-                          <div class="card  bg-base-100 ">
+                          <div onclick="CardClick(this)" class="card  bg-base-100 ">
                             <figure class=" m-5 bg-[#F8F8F8] rounded-xl">
                               <img src="./images/prod1.png" alt="K. Accessories" class="rounded-xl p-2" />
                             </figure>
@@ -112,11 +117,11 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                               </div>
-                              <h2 class="card-title">K. Accessories</h2>
-                              <p>39.00 TK</p>
+                              <h2 class="card-title">K. Accories</h2>
+                              <p>99.00 TK</p>
                             </div>
                           </div>
-                          <div class="card  bg-base-100 ">
+                          <div onclick="CardClick(this)" class="card  bg-base-100 ">
                             <figure class=" m-5 bg-[#F8F8F8] rounded-xl">
                               <img src="./images/prod1.png" alt="K. Accessories" class="rounded-xl p-2" />
                             </figure>
@@ -129,7 +134,7 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                               </div>
                               <h2 class="card-title">K. Accessories</h2>
-                              <p>39.00 TK</p>
+                              <p>257.00 TK</p>
                             </div>
                           </div>
                     </div>
@@ -141,23 +146,39 @@
                     <div class=" w-full bg-white p-6 rounded-lg">
                       <h1 class="text-semibold">Have coupon?</h1>
                         <div class="flex gap-0 mt-4">
-                          <input type="text" class=" w-full border-r-[0] border-[1px] border-gray-800 px-1 rounded-l-lg " placeholder="Coupon code">
-                          <button class="  text-white btn bg-pink-500 hover:bg-pink-600 rounded-l-sm">Apply</button>
+                          <input id="cupon-number" type="text" class=" w-full border-r-[0] border-[1px] border-gray-800 px-1 rounded-l-lg " placeholder="Coupon code">
+                          <button onclick="cuponCodeClick(this)" id="cupon-aply-btn" disabled class="  text-white btn bg-pink-500 hover:bg-pink-600 rounded-l-sm">Apply</button>
                         </div>
                     </div>
                     <div class=" w-full bg-white p-6 rounded-lg mt-4">
-                      <div class="mt-4">
-
+                      <div id="list-name" class="mt-4">
+                        
                       </div>
                       <hr>
                       <div class="mt-4">
                         <div class="mb-4">
-                          <p class="font-bold py-1">Total price : <span class="font-semibold text-gray-500">00 TK</span></p>
-                          <p class="font-bold py-1">Discount : <span class="font-semibold text-gray-500">00 TK</span></p>
-                          <p class="font-bold py-1">Total : <span class="font-semibold text-gray-500">00 TK</span></p>
+                          <p id="total-price" class="font-bold py-1">Total price : <span class="font-semibold text-gray-500">00 TK</span></p>
+                          <p id="discount-price" class="font-bold py-1">Discount : <span class="font-semibold text-gray-500">00 TK</span></p>
+                          <p id="end-price" class="font-bold py-1">Total : <span class="font-semibold text-gray-500">00 TK</span></p>
                         </div>
                         <hr>
-                        <button class="btn text-white btn bg-pink-500 hover:bg-pink-600 w-full mt-4">Make Purchase</button>
+                        <button id="purchase-btn" disabled  onclick="my_modal_1.showModal()" class="btn text-white btn bg-pink-500 hover:bg-pink-600 w-full mt-4">Make Purchase</button>
+                        <!-- Open the modal using ID.showModal() method -->
+                            <dialog id="my_modal_1" class="modal">
+                              <form method="dialog" class="modal-box">
+                                <div class="flex justify-center ">
+                                  <img src="./images/congo.png" alt="congrats" class="w-fit flex justify-center">
+                                </div>
+                                <h1 class="text-center mt-4 text-3xl font-bold">Congratulations</h1>
+                                <h1 class="text-center mt-4 ">Your Purchase the product</h1>
+                                <!-- <h3 class="font-bold text-lg">Hello!</h3>
+                                <p class="py-4">Press ESC key or click the button below to close</p> -->
+                                <div class="modal-action flex justify-center">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button id="go-home-btn" class="btn  text-white btn bg-pink-500 hover:bg-pink-600 mt-2">Go Home</button>
+                                </div>
+                              </form>
+                            </dialog>
                       </div>
                     </div>
               </div>
@@ -170,5 +191,7 @@
     <footer>
 
     </footer>
+
+    <script src="./js/addlist.js"></script>
 </body>
 </html>
