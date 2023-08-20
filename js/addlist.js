@@ -69,7 +69,7 @@ function CardClick(target)
                 
             }
 
-            if (totalPrice > 200) {
+            if (totalPrice >= 200) {
                 document.getElementById('cupon-aply-btn').removeAttribute('disabled');
             } else {
                 document.getElementById('cupon-aply-btn').setAttribute('disabled', 'true');
@@ -119,3 +119,28 @@ document.getElementById("go-home-btn").addEventListener("click",function()
 {
     location.reload();
 });
+
+// Get a reference to the button
+
+document.getElementById('cupon-code').addEventListener('click', function () {
+    // Create a temporary textarea element
+    const textarea = document.createElement('textarea');
+    textarea.value = document.getElementById('cupon-code').innerText;
+
+    // Append the textarea to the document
+    document.body.appendChild(textarea);
+
+    // Select the text in the textarea
+    textarea.select();
+
+    // Execute the copy command
+    document.execCommand('copy');
+
+    // Remove the textarea
+    document.body.removeChild(textarea);
+
+    // Provide feedback to the user
+    // alert('Coupon code copied to clipboard:' + document.getElementById('cupon-code').innerText);
+});
+
+
