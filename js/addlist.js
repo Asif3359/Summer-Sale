@@ -1,27 +1,27 @@
 
+// get old total price with attribute id 
 function totalPriceValue(id){
   const OldtotalPrice =  parseFloat( document.getElementById(id).innerText.split(" ")[3]);
-//   console.log(TotalPrice);
-return OldtotalPrice;
+  return OldtotalPrice;
 }
 
-// set total Price Value 
+// set total Price Value  with attrivute id1 , price 
 function steTotalPriceValue(id1 , price)
 {
      document.getElementById(id1).innerHTML=`
        <p id="total-price" class="font-bold py-1">Total price : <span class="font-semibold text-gray-500"> ${price} TK</span></p>
-     `;
-    
+     `; 
 }
-// set discount 
+
+// set discount with attribute id4 , price 
 function setDiscountPrice(id4 , price)
 {
     document.getElementById(id4).innerHTML=`
     <p id="discount-price" class="font-bold py-1">Discount : <span class="font-semibold text-gray-500">${price} TK</span></p>
-    `
+      `
 }
 
-// set End price value 
+// set End price value  with attribute id2 , price 
 function setEndPriceValue(id2 , price)
 {
     document.getElementById(id2).innerHTML=`
@@ -29,19 +29,18 @@ function setEndPriceValue(id2 , price)
     `
 }
 
-// appent product title 
+// append product title with attribute title 
 let count = 1;
 function setItemName(title)
 {
     const p = document.createElement("p");
-
     p.innerHTML = ` 
    <span class="font-bold py-1">${count++}. ${title}</span>
     `
     document.getElementById('list-name').appendChild(p);
 }
 
-// cupon-number get cupun number 
+// cupon-number get cupun number  with attribute id3
 function getCuponValue(id3)
 {
     const cuponCard = document.getElementById(id3).value;
@@ -51,9 +50,7 @@ function getCuponValue(id3)
 
 
 
-
-
-// this is selcet item
+// this is selcet item 
 function CardClick(target)
 {
     const name = target.childNodes[3].childNodes[3].innerText;
@@ -61,6 +58,8 @@ function CardClick(target)
     const total = totalPriceValue("total-price");
 
     const totalPrice = price + total ;
+
+            // if total price is getterthen 0 make purchase btn disabled
             if (totalPrice > 0) {
                 document.getElementById('purchase-btn').removeAttribute('disabled');
                 
@@ -69,11 +68,14 @@ function CardClick(target)
                 
             }
 
+            // if total price is getterthen 200 or 200  apply button is enable 
             if (totalPrice >= 200) {
                 document.getElementById('cupon-aply-btn').removeAttribute('disabled');
             } else {
                 document.getElementById('cupon-aply-btn').setAttribute('disabled', 'true');
             }
+
+            // if price == 0 then not add it in card 
             if(price>0)
             {
                 setItemName(name);
@@ -81,9 +83,9 @@ function CardClick(target)
             
         steTotalPriceValue("total-price",totalPrice.toFixed(2));
        
-
-        let discountPrice= 0 ;
-        if(cuponNumber == 100)
+        // when apply with promo code then the functionality 
+        let discountPrice = 0 ;
+        if(cuponNumber == 100) // condition if apply is clicked
         {
             discountPrice = (20/100)*(totalPrice);
             
@@ -99,47 +101,47 @@ function CardClick(target)
 
 
 // for aply button 
-let cuponNumber = 0;
+// when apply cupon code then in time change value  
+let cuponNumber = 0; // this is a variable to access in when click card 
 function cuponCodeClick(target){
     const cuponvalue = getCuponValue("cupon-number");
 
     if(cuponvalue == "SELL200"){
 
-        cuponNumber=100;
+        cuponNumber=100; // when clickd apply 
         const total = totalPriceValue("total-price");
         
         discountPrice = (20/100)*(total).toFixed(2);
 
+
+        // and intime change value 
         setDiscountPrice("discount-price", discountPrice.toFixed(2));
         setEndPriceValue("end-price" ,(total-discountPrice).toFixed(2));
     }
 
 }
+
+// when clicked go Home button the relode this page 
 document.getElementById("go-home-btn").addEventListener("click",function()
 {
     location.reload();
 });
 
-// Get a reference to the button
 
+
+// Get a reference to the button
+// extra code copy cuponCode with button 
 document.getElementById('cupon-code').addEventListener('click', function () {
-    // Create a temporary textarea element
     const textarea = document.createElement('textarea');
     textarea.value = document.getElementById('cupon-code').innerText;
 
-    // Append the textarea to the document
     document.body.appendChild(textarea);
-
-    // Select the text in the textarea
     textarea.select();
 
-    // Execute the copy command
     document.execCommand('copy');
 
-    // Remove the textarea
     document.body.removeChild(textarea);
 
-    // Provide feedback to the user
     // alert('Coupon code copied to clipboard:' + document.getElementById('cupon-code').innerText);
 });
 
